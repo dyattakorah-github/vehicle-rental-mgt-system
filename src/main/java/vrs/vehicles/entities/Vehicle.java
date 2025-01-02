@@ -101,7 +101,7 @@ public abstract class  Vehicle {
     public String toString() {
         return "Vehicle{" +
                 "vehicleId='" + vehicleId + '\'' +
-                "licensePlate='" + licensePlate + '\'' +
+                ", licensePlate='" + licensePlate + '\'' +
                 ", model='" + model + '\'' +
                 ", brand=" + brand +
                 ", fuelType='" + fuelType + '\'' +
