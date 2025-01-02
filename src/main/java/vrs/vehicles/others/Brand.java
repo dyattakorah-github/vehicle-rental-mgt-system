@@ -10,12 +10,14 @@ import java.util.Set;
 public class Brand {
     private String brandName;
     private String countryOfOrigin;
+    private String year;
     private Set<VehicleCategory> category;
     private Set<Vehicle> associatedVehicles;
 
-    public Brand(String brandName, String countryOfOrigin) {
+    public Brand(String brandName, String year, String countryOfOrigin) {
         this.brandName = brandName;
         this.countryOfOrigin = countryOfOrigin;
+        this.year = year;
         this.category = new HashSet<>();
         this.associatedVehicles = new HashSet<>();
     }
@@ -27,6 +29,8 @@ public class Brand {
     public String getCountryOfOrigin() {
         return countryOfOrigin;
     }
+
+    public String getYear() { return year; }
 
     public Set<VehicleCategory> getCategory() {
         return category;
@@ -43,6 +47,8 @@ public class Brand {
     public void setCountryOfOrigin(String countryOfOrigin) {
         this.countryOfOrigin = countryOfOrigin;
     }
+
+    public void setYear(String year) { this.year = year; }
 
     public void setCategory(Set<VehicleCategory> category) {
         this.category = new HashSet<>(category);
@@ -70,7 +76,9 @@ public class Brand {
         return "Brand{" +
                 "brandName='" + brandName + '\'' +
                 ", countryOfOrigin='" + countryOfOrigin + '\'' +
-                ", category=" + category +
+                ", year='" + year + '\'' +
+                ", category='" + category + '\'' +
+                ", associatedVehicles=" + associatedVehicles +
                 '}';
     }
 
@@ -79,11 +87,12 @@ public class Brand {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Brand brand = (Brand) o;
-        return Objects.equals(brandName, brand.brandName) && Objects.equals(countryOfOrigin, brand.countryOfOrigin);
+        return Objects.equals(brandName, brand.brandName) && Objects.equals(countryOfOrigin, brand.countryOfOrigin) &&
+                Objects.equals(year, brand.year);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brandName, countryOfOrigin);
+        return Objects.hash(brandName, countryOfOrigin, year);
     }
 }

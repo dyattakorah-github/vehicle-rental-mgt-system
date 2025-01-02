@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public abstract class  Vehicle {
     private String vehicleId;
+    private String licensePlate;
     private String model;
     private Brand brand;
     private FuelType fuelType;
@@ -15,8 +16,9 @@ public abstract class  Vehicle {
     private double baseRentalRate;
     private boolean isAvailable;
 
-    public Vehicle(String vehicleId, String model, Brand brand, FuelType fuelType, VehicleCategory vehicleCategory, double baseRentalRate, boolean isAvailable) {
+    public Vehicle(String vehicleId, String licensePlate, String model, Brand brand, FuelType fuelType, VehicleCategory vehicleCategory, double baseRentalRate, boolean isAvailable) {
         this.vehicleId = vehicleId;
+        this.licensePlate = licensePlate;
         this.model = model;
         this.brand = brand;
         this.fuelType = fuelType;
@@ -27,6 +29,10 @@ public abstract class  Vehicle {
 
     public String getVehicleId() {
         return vehicleId;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
     public String getModel() {
@@ -55,6 +61,10 @@ public abstract class  Vehicle {
 
     public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
     }
 
     public void setModel(String model) {
@@ -91,8 +101,10 @@ public abstract class  Vehicle {
     public String toString() {
         return "Vehicle{" +
                 "vehicleId='" + vehicleId + '\'' +
+                "licensePlate='" + licensePlate + '\'' +
                 ", model='" + model + '\'' +
                 ", brand=" + brand +
+                ", fuelType='" + fuelType + '\'' +
                 ", vehicleCategory=" + vehicleCategory +
                 ", baseRentalRate=" + baseRentalRate +
                 ", isAvailable=" + isAvailable +
@@ -104,13 +116,13 @@ public abstract class  Vehicle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return Double.compare(baseRentalRate, vehicle.baseRentalRate) == 0 && Objects.equals(vehicleId, vehicle.vehicleId) &&
+        return Double.compare(baseRentalRate, vehicle.baseRentalRate) == 0 && Objects.equals(vehicleId, vehicle.vehicleId) && Objects.equals(licensePlate, vehicle.licensePlate) &&
                 Objects.equals(model, vehicle.model) && Objects.equals(brand, vehicle.brand) && Objects.equals(fuelType, vehicle.fuelType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vehicleId, model, baseRentalRate, brand, fuelType);
+        return Objects.hash(vehicleId, licensePlate, model, baseRentalRate, brand, fuelType);
     }
 }
 
