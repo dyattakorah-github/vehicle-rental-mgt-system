@@ -1,4 +1,4 @@
-package vrs.vehicles.enums;
+package vrs.models.enums;
 
 public enum MotorcycleCategory {
     CRUISERS,

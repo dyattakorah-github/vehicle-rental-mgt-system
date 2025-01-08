@@ -1,7 +1,7 @@
-package vrs.vehicles.others;
+package vrs.models.others;
 
-import vrs.vehicles.interfaces.VehicleCategory;
-import vrs.vehicles.entities.Vehicle;
+import vrs.models.interfaces.VehicleCategory;
+import vrs.models.vehicle.Vehicle;
 
 import java.util.HashSet;
 import java.util.Objects;

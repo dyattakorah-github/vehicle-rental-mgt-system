@@ -1,8 +1,8 @@
-package vrs.vehicles.entities;
+package vrs.models.vehicle;
 
-import vrs.vehicles.enums.FuelType;
-import vrs.vehicles.interfaces.VehicleCategory;
-import vrs.vehicles.others.Brand;
+import vrs.models.enums.FuelType;
+import vrs.models.interfaces.VehicleCategory;
+import vrs.models.others.Brand;
 
 import java.util.Objects;
 
