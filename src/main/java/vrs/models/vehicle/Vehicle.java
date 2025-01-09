@@ -2,8 +2,9 @@ package vrs.models.vehicle;
 
 import vrs.models.others.Brand;
 import vrs.models.interfaces.VehicleCategory;
-import vrs.models.enums.FuelType;
+import vrs.models.enums.othercategories.FuelType;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public abstract class  Vehicle {
@@ -130,7 +131,7 @@ public abstract class  Vehicle {
      * @return true if the vehicle is available on the given date(s), otherwise false.
      *
      */
-    public abstract boolean isAvailableOnDate(String startDate, String endDate);
+    public abstract boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate);
 
     /**
     * Determines whether the vehicle is due for maintenance based on predefined criteria.

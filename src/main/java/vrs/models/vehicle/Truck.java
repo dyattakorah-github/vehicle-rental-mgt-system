@@ -1,9 +1,10 @@
 package vrs.models.vehicle;
 
-import vrs.models.enums.FuelType;
-import vrs.models.interfaces.VehicleCategory;
+import vrs.models.enums.othercategories.FuelType;
+import vrs.models.enums.vehiclecategories.TruckCategory;
 import vrs.models.others.Brand;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -36,7 +37,7 @@ public class Truck extends Vehicle {
      * @param axleCount the number of axles (between 2 and 10)
      * @throws IllegalArgumentException if any of the provided values are invalid
      */
-    public Truck(String vehicleId, String licensePlate, String model, Brand brand, FuelType fuelType, VehicleCategory vehicleCategory,
+    public Truck(String vehicleId, String licensePlate, String model, Brand brand, FuelType fuelType, TruckCategory vehicleCategory,
                  double baseRentalRate, boolean isAvailable, double cargoCapacity, double cargoBedSize, int axleCount) {
         super(vehicleId, licensePlate, model, brand, fuelType, vehicleCategory, baseRentalRate, isAvailable);
 
@@ -157,7 +158,7 @@ public class Truck extends Vehicle {
      * @return {@code true} if the truck is available, {@code false} otherwise
      */
     @Override
-    public boolean isAvailableOnDate(String startDate, String endDate) {
+    public boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate) {
         // Placeholder for future logic
         return true;
     }

@@ -1,6 +1,7 @@
 package vrs.models.others;
 
 import vrs.models.interfaces.VehicleCategory;
+import vrs.models.enums.vehiclecategories.*;
 import vrs.models.vehicle.Vehicle;
 
 import java.util.HashSet;
@@ -67,7 +68,11 @@ public class Brand {
 
     public void addCategory(VehicleCategory category) {
         if (category != null) {
-            this.category.add(category);
+            if (category instanceof CarCategory || category instanceof MotorcycleCategory || category instanceof TruckCategory) {
+                this.category.add(category);
+            } else {
+                throw new IllegalArgumentException("Only CarCategory, MotorcycleCategory or TruckCategory can be added.");
+            }
         }
     }
 

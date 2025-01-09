@@ -1,10 +1,11 @@
 package vrs.models.vehicle;
 
-import vrs.models.enums.FuelType;
-import vrs.models.enums.EngineType;
-import vrs.models.interfaces.VehicleCategory;
+import vrs.models.enums.othercategories.FuelType;
+import vrs.models.enums.othercategories.EngineType;
+import vrs.models.enums.vehiclecategories.MotorcycleCategory;
 import vrs.models.others.Brand;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -35,7 +36,7 @@ public class Motorcycle extends Vehicle {
  * @throws IllegalArgumentException if any of the provided values are invalid
  */
 public Motorcycle(String vehicleId, String licensePlate, String model, Brand brand,
-                      FuelType fuelType, VehicleCategory vehicleCategory, double baseRentalRate,
+                      FuelType fuelType, MotorcycleCategory vehicleCategory, double baseRentalRate,
                       boolean isAvailable, EngineType engineType, double mileage) {
         super(vehicleId, licensePlate, model, brand, fuelType, vehicleCategory, baseRentalRate, isAvailable);
         if (engineType == null) {
@@ -124,7 +125,7 @@ public Motorcycle(String vehicleId, String licensePlate, String model, Brand bra
      * @return {@code true} if the motorcycle is available, {@code false} otherwise
      */
     @Override
-    public boolean isAvailableOnDate(String startDate, String endDate) {
+    public boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate) {
         // TODO: Implement date-based availability check using booking system
         return true; // Placeholder for future logic
     }

@@ -1,9 +1,10 @@
 package vrs.models.vehicle;
 
-import vrs.models.enums.FuelType;
-import vrs.models.interfaces.VehicleCategory;
+import vrs.models.enums.othercategories.FuelType;
+import vrs.models.enums.vehiclecategories.CarCategory;
 import vrs.models.others.Brand;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -40,7 +41,7 @@ public class Car extends Vehicle {
      * @throws IllegalArgumentException if any of the provided values are invalid
      */
     public Car(String vehicleId, String licensePlate, String model, Brand brand,
-               FuelType fuelType, VehicleCategory vehicleCategory, double baseRentalRate,
+               FuelType fuelType, CarCategory vehicleCategory, double baseRentalRate,
                boolean isAvailable, int seatingCapacity, String transmissionType,
                double trunkCapacity, double mileage) {
         super(vehicleId, licensePlate, model, brand, fuelType, vehicleCategory, baseRentalRate,
@@ -149,8 +150,8 @@ public class Car extends Vehicle {
      * @throws IllegalArgumentException if the mileage is invalid
      */
     public void setMileage(double mileage) {
-        if (mileage < 0 || mileage > 1000000){
-            throw new IllegalArgumentException("Mileage must be between 8.5 and 15");
+        if (mileage < 8.5 || mileage > 15){
+            throw new IllegalArgumentException("Mileage must be between 8.5 and 15 km/l (kilometres per litres)");
         }
         this.mileage = mileage;
     }
@@ -192,7 +193,7 @@ public class Car extends Vehicle {
      * @note Future development could involve integrating a date booking system
      *       and handling date conflicts.
      */
-    public boolean isAvailableOnDate(String startDate, String endDate) {
+    public boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate) {
         // TODO: Implement date-based availability check using booking system
         return true; // Placeholder for future logic
     }
