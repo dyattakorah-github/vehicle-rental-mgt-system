@@ -50,8 +50,8 @@ public class Car extends Vehicle {
         if (transmissionType == null || transmissionType.isEmpty()) {
             throw new IllegalArgumentException("Transmission type cannot be empty");
         }
-        if (trunkCapacity <= 0 || trunkCapacity > 1000) {
-            throw new IllegalArgumentException("Trunk capacity must be greater than  0 and less than or equal to 1,000 litres");
+        if (trunkCapacity <= 340 || trunkCapacity > 1500) {
+            throw new IllegalArgumentException("Trunk capacity must be between 3400 and 1,500 litres");
         }
         if (mileage < 0 || mileage > 1000000) {
             throw new IllegalArgumentException("Mileage must be between 0 and 1,000,000 km");
