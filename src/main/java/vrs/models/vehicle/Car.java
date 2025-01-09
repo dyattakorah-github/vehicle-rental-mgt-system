@@ -36,12 +36,13 @@ public class Car extends Vehicle {
      * @param seatingCapacity the seating capacity (between 2 and 9)
      * @param transmissionType the type of transmission (e.g., Manual, Automatic)
      * @param trunkCapacity the trunk capacity in litres (greater than 0 and less than or equal to 1000)
-     * @param mileage the mileage of the vehicle (between 0 and 1,000,000 km)
+     * @param mileage the mileage of the vehicle (between 8.5 and 15 km/l (kilometres per litre))
      * @throws IllegalArgumentException if any of the provided values are invalid
      */
     public Car(String vehicleId, String licensePlate, String model, Brand brand,
                FuelType fuelType, VehicleCategory vehicleCategory, double baseRentalRate,
-               boolean isAvailable, int seatingCapacity, String transmissionType, double trunkCapacity, double mileage) {
+               boolean isAvailable, int seatingCapacity, String transmissionType,
+               double trunkCapacity, double mileage) {
         super(vehicleId, licensePlate, model, brand, fuelType, vehicleCategory, baseRentalRate,
                 isAvailable);
         if (seatingCapacity < 2 || seatingCapacity > 9) {
@@ -53,8 +54,8 @@ public class Car extends Vehicle {
         if (trunkCapacity <= 340 || trunkCapacity > 1500) {
             throw new IllegalArgumentException("Trunk capacity must be between 3400 and 1,500 litres");
         }
-        if (mileage < 0 || mileage > 1000000) {
-            throw new IllegalArgumentException("Mileage must be between 0 and 1,000,000 km");
+        if (mileage < 8.5 || mileage > 15) {
+            throw new IllegalArgumentException("Mileage must be between 8.5 and 15 km/l (kilometres per litre)");
         }
         this.seatingCapacity = seatingCapacity;
         this.transmissionType = transmissionType;
@@ -92,7 +93,7 @@ public class Car extends Vehicle {
     /**
      * Returns the mileage of the car in kilometers.
      *
-     * @return the mileage (between 0 and 1,000,000 km)
+     * @return the mileage (between 8.5 and 15 km/l (kilometres per litre))
      */
     public double getMileage() {
         return mileage;
@@ -142,14 +143,14 @@ public class Car extends Vehicle {
 
     /**
      * Sets the mileage of the car.
-     * Validates that the mileage is between 0 and 1,000,000 kilometers.
+     * Validates that the mileage is between 8.5 and 15 kilometers per litre.
      *
-     * @param mileage the new mileage in kilometers
+     * @param mileage the new mileage in kilometers per litre
      * @throws IllegalArgumentException if the mileage is invalid
      */
     public void setMileage(double mileage) {
         if (mileage < 0 || mileage > 1000000){
-            throw new IllegalArgumentException("Mileage must be between 0 and 1,000,000");
+            throw new IllegalArgumentException("Mileage must be between 8.5 and 15");
         }
         this.mileage = mileage;
     }
