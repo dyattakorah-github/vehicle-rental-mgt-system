@@ -1,4 +1,4 @@
-package vrs.models.enums.vehiclecategories;
+package vrs.models.enums.vehicle.vehiclecategories;
 
 import vrs.models.interfaces.VehicleCategory;
 

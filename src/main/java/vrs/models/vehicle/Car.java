@@ -1,7 +1,7 @@
 package vrs.models.vehicle;
 
-import vrs.models.enums.othercategories.FuelType;
-import vrs.models.enums.vehiclecategories.CarCategory;
+import vrs.models.enums.vehicle.othercategories.FuelType;
+import vrs.models.enums.vehicle.vehiclecategories.CarCategory;
 import vrs.models.others.Brand;
 
 import java.time.LocalDate;

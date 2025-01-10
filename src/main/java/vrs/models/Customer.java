@@ -1,5 +1,7 @@
 package vrs.models;
 
+import vrs.models.enums.customer.ContactType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -10,7 +12,8 @@ public class Customer {
     private final String customerId;
     private final String customerName;
     private final String licenseNumber;
-    private Map<String, String> contactInfo;
+    private Map<ContactType, String> contactInfo;
+    private final List<Bookings> rentalHistory;
 
     public Customer(String customerId, String customerName, String licenseNumber) {
         if (customerId == null || customerId.isEmpty()) throw new IllegalArgumentException("ID cannot be null or empty");
@@ -20,6 +23,7 @@ public class Customer {
         this.customerName = customerName;
         this.licenseNumber = licenseNumber;
         this.contactInfo = new HashMap<>();
+        this.rentalHistory = new ArrayList<>();
     }
 
     public String getCustomerId() {
@@ -33,12 +37,22 @@ public class Customer {
         return licenseNumber;
     }
 
-    public Map<String, String> getContactInfo() {
+    public Map<ContactType, String> getContactInfo() {
         return contactInfo;
     }
 
-    public void setContactInfo(Map<String, String> contactInfo) {
+    public List<Bookings> getRentalHistory() {
+        return rentalHistory;
+    }
+
+    public void setContactInfo(Map<ContactType, String> contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public void addBookingToHistory(Bookings booking) {
+        if (booking != null) {
+            rentalHistory.add(booking);
+        }
     }
 
     @Override
@@ -47,7 +61,8 @@ public class Customer {
                 "customerId='" + customerId + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", licenseNumber='" + licenseNumber + '\'' +
-                ", contactInfo=" + contactInfo +
+                ", contactInfo='" + contactInfo + '\'' +
+                ", rentalHistory=" + rentalHistory +
                 '}';
     }
 

@@ -1,7 +1,9 @@
 package vrs.models.others;
 
+import vrs.models.enums.vehicle.vehiclecategories.CarCategory;
+import vrs.models.enums.vehicle.vehiclecategories.MotorcycleCategory;
+import vrs.models.enums.vehicle.vehiclecategories.TruckCategory;
 import vrs.models.interfaces.VehicleCategory;
-import vrs.models.enums.vehiclecategories.*;
 import vrs.models.vehicle.Vehicle;
 
 import java.util.HashSet;
