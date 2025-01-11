@@ -13,11 +13,11 @@ import java.util.Set;
 public class Brand {
     private String brandName;
     private String countryOfOrigin;
-    private String year;
+    private int year;
     private Set<VehicleCategory> category;
     private Set<Vehicle> associatedVehicles;
 
-    public Brand(String brandName, String year, String countryOfOrigin) {
+    public Brand(String brandName, int year, String countryOfOrigin) {
         this.brandName = brandName;
         this.countryOfOrigin = countryOfOrigin;
         this.year = year;
@@ -33,7 +33,7 @@ public class Brand {
         return countryOfOrigin;
     }
 
-    public String getYear() { return year; }
+    public int getYear() { return year; }
 
     public Set<VehicleCategory> getCategory() {
         return category;
@@ -51,7 +51,7 @@ public class Brand {
         this.countryOfOrigin = countryOfOrigin;
     }
 
-    public void setYear(String year) { this.year = year; }
+    public void setYear(int year) { this.year = year; }
 
     public void setCategory(Set<VehicleCategory> category) {
         this.category = new HashSet<>(category);
