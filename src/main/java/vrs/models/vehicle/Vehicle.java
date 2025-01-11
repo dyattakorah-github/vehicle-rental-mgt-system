@@ -5,6 +5,7 @@ import vrs.models.interfaces.VehicleCategory;
 import vrs.models.enums.vehicle.othercategories.FuelType;
 
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Objects;
 
 public abstract class  Vehicle {
@@ -108,6 +109,11 @@ public abstract class  Vehicle {
 
     public void setVehicleCategory(VehicleCategory vehicleCategory) {
         this.vehicleCategory = vehicleCategory;
+    }
+
+    public int calculateAge() {
+        int currentYear = Year.now().getValue();
+        return currentYear - brand.getYear();
     }
 
     /**
