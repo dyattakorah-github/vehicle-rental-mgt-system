@@ -1,4 +1,4 @@
-package vrs.services;
+package vrs.business;
 
 import vrs.models.vehicle.Vehicle;
 
@@ -9,8 +9,9 @@ public abstract class RentalCostCalculator {
         double ageFactor = calculateAgeFactor(vehicle);
         double categoryFactor = getCategoryFactor(vehicle);
         double fuelFactor = getFuelFactor(vehicle);
+        double brandFactor = getBrandFactor(vehicle);
 
-        return calculateCostForVehicle(vehicle, days, baseCost, ageFactor, categoryFactor, fuelFactor);
+        return calculateCostForVehicle(vehicle, days, baseCost, ageFactor, categoryFactor, fuelFactor, brandFactor);
     }
 
     protected double calculateAgeFactor(Vehicle vehicle) {
@@ -20,7 +21,8 @@ public abstract class RentalCostCalculator {
 
     protected abstract double getCategoryFactor(Vehicle vehicle);
     protected abstract double getFuelFactor(Vehicle vehicle);
+    protected abstract double getBrandFactor(Vehicle vehicle);
 
-    protected abstract double calculateCostForVehicle(Vehicle vehicle, int days, double baseCost, double ageFactor, double categoryFactor, double fuelFactor);
+    protected abstract double calculateCostForVehicle(Vehicle vehicle, int days, double baseCost, double ageFactor, double categoryFactor, double fuelFactor, double brandFactor);
 
 }
