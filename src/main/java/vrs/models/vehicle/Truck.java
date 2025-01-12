@@ -4,7 +4,6 @@ import vrs.models.enums.vehicle.othercategories.FuelType;
 import vrs.models.enums.vehicle.vehiclecategories.TruckCategory;
 import vrs.models.others.Brand;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -148,30 +147,6 @@ public class Truck extends Vehicle {
     @Override
     public boolean isAvailableForRental() {
         return isAvailable();
-    }
-
-    /**
-     * Checks if the truck is available for rental on the given date range.
-     *
-     * @param startDate the start date of the rental period
-     * @param endDate the end date of the rental period
-     * @return {@code true} if the truck is available, {@code false} otherwise
-     */
-    @Override
-    public boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate) {
-        // Placeholder for future logic
-        return true;
-    }
-
-    /**
-     * Checks if the truck is due for maintenance.
-     *
-     * @return {@code true} if the truck is due for maintenance, {@code false} otherwise
-     */
-    @Override
-    public boolean isDueForMaintenance() {
-        // Placeholder for future logic
-        return false;
     }
 
     /**

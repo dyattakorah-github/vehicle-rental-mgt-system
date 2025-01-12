@@ -4,7 +4,6 @@ import vrs.models.others.Brand;
 import vrs.models.interfaces.VehicleCategory;
 import vrs.models.enums.vehicle.othercategories.FuelType;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.Objects;
 
@@ -131,21 +130,6 @@ public abstract class  Vehicle {
      */
     public abstract boolean isAvailableForRental();
 
-    /**
-     * Checks whether the vehicle is available on a specific date or during a specific date range.
-     *
-     * @return true if the vehicle is available on the given date(s), otherwise false.
-     *
-     */
-    public abstract boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate);
-
-    /**
-    * Determines whether the vehicle is due for maintenance based on predefined criteria.
-    *
-    * @return true if the vehicle is due for maintenance, otherwise false.
-    */
-    public abstract boolean isDueForMaintenance();
-
     @Override
     public String toString() {
         return "Vehicle{" +
@@ -165,8 +149,10 @@ public abstract class  Vehicle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return Double.compare(baseRentalRate, vehicle.baseRentalRate) == 0 && Objects.equals(vehicleId, vehicle.vehicleId) && Objects.equals(licensePlate, vehicle.licensePlate) &&
-                Objects.equals(model, vehicle.model) && Objects.equals(brand, vehicle.brand) && Objects.equals(fuelType, vehicle.fuelType);
+        return Double.compare(baseRentalRate, vehicle.baseRentalRate) == 0 && isAvailable ==  vehicle.isAvailable &&
+                Objects.equals(vehicleId, vehicle.vehicleId) && Objects.equals(licensePlate, vehicle.licensePlate) &&
+                Objects.equals(model, vehicle.model) && Objects.equals(brand, vehicle.brand) &&
+                Objects.equals(fuelType, vehicle.fuelType);
     }
 
     @Override

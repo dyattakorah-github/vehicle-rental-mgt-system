@@ -118,30 +118,6 @@ public Motorcycle(String vehicleId, String licensePlate, String model, Brand bra
     }
 
     /**
-     * Checks if the motorcycle is available for rental on the given date range.
-     *
-     * @param startDate the start date of the rental period
-     * @param endDate the end date of the rental period
-     * @return {@code true} if the motorcycle is available, {@code false} otherwise
-     */
-    @Override
-    public boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate) {
-        // TODO: Implement date-based availability check using booking system
-        return true; // Placeholder for future logic
-    }
-
-    /**
-     * Checks if the motorcycle is due for maintenance.
-     *
-     * @return {@code true} if the motorcycle is due for maintenance, {@code false} otherwise
-     */
-    @Override
-    public boolean isDueForMaintenance() {
-        // TODO: Implement maintenance check logic based on mileage or last service date
-        return false; // Placeholder for future logic
-    }
-
-    /**
      * Returns a string representation of the {@code Motorcycle} object.
      *
      * @return a string representing the motorcycle's attributes

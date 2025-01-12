@@ -4,7 +4,6 @@ import vrs.models.enums.vehicle.othercategories.FuelType;
 import vrs.models.enums.vehicle.vehiclecategories.CarCategory;
 import vrs.models.others.Brand;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -181,34 +180,6 @@ public class Car extends Vehicle {
      */
     public boolean isAvailableForRental() {
         return isAvailable();
-    }
-
-    /**
-     * Checks if the car is available for rental on the given date range.
-     *
-     * @param startDate the start date of the rental period
-     * @param endDate the end date of the rental period
-     * @return {@code true} if the car is available, {@code false} otherwise
-     *
-     * @note Future development could involve integrating a date booking system
-     *       and handling date conflicts.
-     */
-    public boolean isAvailableOnDate(LocalDate startDate, LocalDate endDate) {
-        // TODO: Implement date-based availability check using booking system
-        return true; // Placeholder for future logic
-    }
-
-    /**
-     * Checks if the car is due for maintenance.
-     *
-     * @return {@code true} if the car is due for maintenance, {@code false} otherwise
-     *
-     * @note Future development may involve adding maintenance logic based on mileage
-     *       or time since the last service.
-     */
-    public boolean isDueForMaintenance() {
-        // TODO: Implement maintenance check based on mileage or last service date
-        return false; // Placeholder for future logic
     }
 
     /**
