@@ -1,5 +1,7 @@
 package vrs.models.vehicle;
 
+import vrs.business.CarRentalCostCalculator;
+import vrs.business.RentalCostCalculator;
 import vrs.models.enums.vehicle.othercategories.FuelType;
 import vrs.models.enums.vehicle.vehiclecategories.CarCategory;
 import vrs.models.others.Brand;
@@ -155,22 +157,9 @@ public class Car extends Vehicle {
         this.mileage = mileage;
     }
 
-    /**
-     * Calculates the rental cost for the car based on the number of days rented.
-     *
-     * @param days the number of days the car is rented
-     * @return the total rental cost for the specified number of days
-     * @throws IllegalArgumentException if the number of rental days is not positive
-     *
-     * @note Future development may include implementing pricing strategies based on peak seasons
-     *       or additional surcharges for special features.
-     */
-    public double calculateRentalCost(int days) {
-        if (days <= 0) {
-            throw new IllegalArgumentException("Rentals days must be positive");
-        }
-        return days * getBaseRentalRate();
-        // TODO: Implement dynamic pricing (e.g., weekend pricing, seasonal rates)
+    @Override
+    protected RentalCostCalculator createRentalCostCalculator() {
+        return new CarRentalCostCalculator();
     }
 
     /**

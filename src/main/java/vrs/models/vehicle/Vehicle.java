@@ -1,5 +1,7 @@
 package vrs.models.vehicle;
 
+import vrs.business.RentalCostCalculator;
+import vrs.models.Bookings;
 import vrs.models.others.Brand;
 import vrs.models.interfaces.VehicleCategory;
 import vrs.models.enums.vehicle.othercategories.FuelType;
@@ -115,13 +117,12 @@ public abstract class  Vehicle {
         return currentYear - brand.getYear();
     }
 
-    /**
-     * Calculates the total rental cost for the vehicle based on the number of rental days.
-     *
-     * @param days the number of days the vehicle is being rented.
-     * @return the total cost for renting the vehicle for the specified number of days.
-     */
-    public abstract double calculateRentalCost(int days);
+    protected abstract RentalCostCalculator createRentalCostCalculator();
+
+    public double calculateRentalCost(Bookings booking) {
+        RentalCostCalculator costCalculator = createRentalCostCalculator();
+        return costCalculator.calculateRentalCost(this, booking);
+    }
 
     /**
      * Checks whether the vehicle is currently available for rental.

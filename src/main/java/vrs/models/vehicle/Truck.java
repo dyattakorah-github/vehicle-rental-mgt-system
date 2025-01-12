@@ -1,5 +1,7 @@
 package vrs.models.vehicle;
 
+import vrs.business.RentalCostCalculator;
+import vrs.business.TruckRentalCostCalculator;
 import vrs.models.enums.vehicle.othercategories.FuelType;
 import vrs.models.enums.vehicle.vehiclecategories.TruckCategory;
 import vrs.models.others.Brand;
@@ -124,19 +126,9 @@ public class Truck extends Vehicle {
         this.axleCount = axleCount;
     }
 
-    /**
-     * Calculates the rental cost for the truck based on the number of days rented.
-     *
-     * @param days the number of days the truck is rented
-     * @return the total rental cost for the specified number of days
-     * @throws IllegalArgumentException if the number of rental days is not positive
-     */
     @Override
-    public double calculateRentalCost(int days) {
-        if (days <= 0) {
-            throw new IllegalArgumentException("Rental days must be positive");
-        }
-        return days * getBaseRentalRate();
+    protected RentalCostCalculator createRentalCostCalculator() {
+        return new TruckRentalCostCalculator();
     }
 
     /**

@@ -1,11 +1,12 @@
 package vrs.models.vehicle;
 
+import vrs.business.MotorRentalCostCalculator;
+import vrs.business.RentalCostCalculator;
 import vrs.models.enums.vehicle.othercategories.FuelType;
 import vrs.models.enums.vehicle.othercategories.EngineType;
 import vrs.models.enums.vehicle.vehiclecategories.MotorcycleCategory;
 import vrs.models.others.Brand;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -91,20 +92,9 @@ public Motorcycle(String vehicleId, String licensePlate, String model, Brand bra
         this.mileage = mileage;
     }
 
-    /**
-     * Calculates the rental cost for the motorcycle based on the number of days rented.
-     *
-     * @param days the number of days the motorcycle is rented
-     * @return the total rental cost for the specified number of days
-     * @throws IllegalArgumentException if the number of rental days is not positive
-     */
     @Override
-    public double calculateRentalCost(int days) {
-        if (days <= 0) {
-            throw new IllegalArgumentException("Rental days must be positive");
-        }
-        return days * getBaseRentalRate();
-        // TODO: Implement dynamic pricing for motorcycles (e.g., discounts, seasonal rates)
+    protected RentalCostCalculator createRentalCostCalculator() {
+        return new MotorRentalCostCalculator();
     }
 
     /**
