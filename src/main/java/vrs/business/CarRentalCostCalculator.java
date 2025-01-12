@@ -45,8 +45,10 @@ public class CarRentalCostCalculator extends RentalCostCalculator {
     }
 
     @Override
-    protected double calculateCostForVehicle(Vehicle vehicle, int days, double baseCost, double ageFactor, double categoryFactor, double fuelFactor, double brandFactor) {
-        return baseCost * days * (1 + ageFactor) * categoryFactor * fuelFactor;
+    protected double calculateCostForVehicle(Vehicle vehicle, long daysRented, double baseCost,
+                                             double ageFactor, double categoryFactor, double fuelFactor,
+                                             double brandFactor, double dynamicPricingFactor) {
+        return baseCost * daysRented * (1 + ageFactor) * categoryFactor * fuelFactor * dynamicPricingFactor;
     }
 
 }
